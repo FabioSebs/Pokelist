@@ -12,12 +12,19 @@ def read_file():
 
 def sequence(pokelist , pokemon, count = 0):
     for i in pokelist:
-        if pokemon == 
-        if pokemon[-1] == i[0]:
-            count +=1
-            
+        #This checks if the pokemon isn't the duplicate pokemon in the list
+        if pokemon != i:
+            if pokemon[-1] == i[0]:
+                count +=1
+                try:
+                    pokelist.pop(pokelist.index(pokemon))
+                    sequence(pokelist , i , count)
+                except:
+                    return count
+    
         else:
-            return count
+            pass
+    return count
         
 def give_results(pokelist):
     mydict = {}
